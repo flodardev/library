@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./modern-css-reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script type="module" src="./script.js"></script>
+    <title>Library</title>
+  </head>
+  <body>
+    <header><h1>&#128214;My Library&#128214;</h1></header>
+    <main>
+      <div class="book-header">
+        <h2>&#128218;Books</h2>
+        <button id="add-book" class="btn squishy-cosmic">
+          &#10133;&#128216;
+        </button>
+      </div>
+      <div class="book-container"></div>
+    </main>
+    <footer>Made with &#129505; @flodardev</footer>
+    <!-- Dialog Modal -->
+    <dialog id="new-book-details">
+      <h1>Add a new book &#128212;</h1>
+      <form method="dialog" id="new-book-form">
+        <div class="input-section">
+          <label for="title">Title</label>
+          <input id="title" name="title" type="text" required />
+        </div>
+        <div class="input-section">
+          <label for="author">Author</label>
+          <input id="author" name="author" type="text" required />
+        </div>
+        <div class="input-section">
+          <label for="pages">Number of pages:</label>
+          <input
+            id="pages"
+            name="numberOfPages"
+            type="text"
+            inputmode="numeric"
+            pattern="\d*"
+            title="Please enter the number of pages"
+            required
+          />
+        </div>
+        <fieldset>
+          <legend>Have you read it?</legend>
+          <div>
+            <input
+              type="radio"
+              id="yes"
+              name="readStatus"
+              value="yes"
+              required
+            />
+            <label for="yes">Yes</label>
+          </div>
+          <div>
+            <input type="radio" name="readStatus" id="no" value="no" required />
+            <label for="no">No</label>
+          </div>
+        </fieldset>
+        <button id="submit-book-btn" type="submit">Submit</button>
+      </form>
+      <button id="close-dialog">Close</button>
+    </dialog>
+  </body>
+</html>

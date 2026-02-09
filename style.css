@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Tangerine:wght@400;700&display=swap");
+
+:root {
+  --header-bg-color: #37353e;
+  --header-font-color: antiquewhite;
+  --btn-bg-color: #412b6b;
+  --btn-font-color: #eeeeee;
+  --main-bg-color: #dcd7c9;
+  --card-bg-color: #ebd3f8;
+  --dialog-bg-color: #3dc2ec;
+  --box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+body {
+  height: 100dvh;
+
+  display: grid;
+  grid-template-rows: min-content 4fr min-content;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+
+  background-color: var(--main-bg-color);
+}
+
+header {
+  padding: 1rem;
+
+  grid-area: header;
+  display: grid;
+  place-content: center;
+
+  background-color: var(--header-bg-color, black);
+  color: var(--header-font-color, whitesmoke);
+  box-shadow: var(--box-shadow);
+}
+/* MAIN START */
+main {
+  grid-area: main;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+}
+
+main > .book-header {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem;
+}
+.book-header > .btn {
+  background-color: var(--btn-bg-color, black);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  height: fit-content;
+  width: fit-content;
+  padding: 0.3rem;
+  position: relative;
+  transition: all 250ms;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+/* Cosmic Squishy */
+.squishy-cosmic {
+  background: linear-gradient(
+    to right,
+    rgb(49 46 129),
+    rgb(88 28 135),
+    rgb(88 28 135)
+  );
+  color: white;
+  border-radius: 0.5rem;
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+    0 2px 0 0 #312e81,
+    0 4px 0 0 #1e1b4b,
+    0 6px 0 0 #0f172a,
+    0 8px 0 0 #020617,
+    0 8px 16px 0 rgba(49, 46, 129, 0.5);
+  overflow: hidden;
+}
+.squishy-cosmic::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=400&fit=crop");
+  background-size: cover;
+  opacity: 0.3;
+  mix-blend-mode: overlay;
+}
+.squishy-cosmic:hover {
+  transform: translateY(4px);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+    0 1px 0 0 #312e81,
+    0 2px 0 0 #1e1b4b,
+    0 3px 0 0 #0f172a,
+    0 4px 0 0 #020617,
+    0 4px 8px 0 rgba(49, 46, 129, 0.5);
+}
+.squishy-cosmic:hover i {
+  animation: spin 1s infinite linear;
+}
+
+.book-container {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, 300px);
+  gap: 1rem;
+  padding: 1rem;
+}
+.book-card {
+  width: 300px;
+  height: 300px;
+  display: grid;
+  grid: 1fr 1fr 1fr 1fr / 1fr 1fr;
+  grid-template-areas:
+    "card-img card-img"
+    "title status"
+    "author author"
+    "card-btns card-btns";
+  background-color: var(--card-bg-color, purple);
+  padding: 0.5rem;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+}
+.card-img {
+  grid-area: card-img;
+  width: 100px;
+  justify-self: center;
+}
+.title {
+  grid-area: title;
+}
+.author {
+  grid-area: author;
+}
+.status {
+  grid-area: status;
+  justify-self: end;
+}
+.card-btns {
+  grid-area: card-btns;
+  justify-self: center;
+}
+.card-btns > button {
+  background-color: var(--btn-bg-color);
+  color: var(--btn-font-color);
+  margin: 2px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+/* MAIN END */
+footer {
+  padding: 0.5rem;
+
+  grid-area: footer;
+  display: grid;
+  place-content: center;
+
+  background-color: var(--header-bg-color, black);
+  color: var(--header-font-color, whitesmoke);
+  box-shadow: var(--box-shadow);
+}
+
+/* DIALOG STARTS */
+#new-book-details {
+  background-color: var(--dialog-bg-color);
+  box-shadow: var(--box-shadow);
+  border-radius: 10px;
+}
+
+#new-book-form {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.input-section {
+  display: grid;
+}
+
+/* dialog buttons */
+#new-book-details button {
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+/* DIALOG ENDS */
