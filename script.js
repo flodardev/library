@@ -152,7 +152,34 @@ const displayController = (() => {
     cardsContainer.innerHTML = "";
   };
 
-  return { displayBooks, resetBooksContainer };
+  // Form validation
+  const formValidation = () => {
+    const form = document.getElementById("new-book-form");
+    const title = document.getElementById("title");
+    const author = document.getElementById("author");
+    const pages = document.getElementById("pages");
+    const readStatus = document.getElementById("read-status");
+
+    if (title.validity.valueMissing) {
+      title.setCustomValidity("Please enter the title");
+    }
+
+    title.addEventListener("input", () => {
+      title.setCustomValidity("");
+      title.checkValidity();
+    });
+
+    if (author.validity.valueMissing) {
+      author.setCustomValidity("Please enter the author's name");
+    }
+
+    author.addEventListener("input", () => {
+      author.setCustomValidity("");
+      author.checkValidity();
+    });
+  };
+
+  return { displayBooks, resetBooksContainer, formValidation };
 })();
 
 // Dialog Section
@@ -209,3 +236,5 @@ const inputPages = document.querySelector("#pages");
 inputPages.addEventListener("input", (event) => {
   event.target.value = event.target.value.replace(/\D/g, "");
 });
+
+displayController.formValidation();
